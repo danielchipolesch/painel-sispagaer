@@ -79,14 +79,16 @@ CREATE TABLE IF NOT EXISTS fat_publicacao_boletim (
 -- CARGA DAS DIMENSÕES
 -- =============================================================================
 
--- dim_tempo: Jan/2023 a Dez/2025 (36 meses de histórico)
+-- dim_tempo: Jan/2023 a Dez/2026 (48 meses de histórico)
 INSERT INTO dim_tempo (ano, mes) VALUES
 (2023,1),(2023,2),(2023,3),(2023,4),(2023,5),(2023,6),
 (2023,7),(2023,8),(2023,9),(2023,10),(2023,11),(2023,12),
 (2024,1),(2024,2),(2024,3),(2024,4),(2024,5),(2024,6),
 (2024,7),(2024,8),(2024,9),(2024,10),(2024,11),(2024,12),
 (2025,1),(2025,2),(2025,3),(2025,4),(2025,5),(2025,6),
-(2025,7),(2025,8),(2025,9),(2025,10),(2025,11),(2025,12);
+(2025,7),(2025,8),(2025,9),(2025,10),(2025,11),(2025,12),
+(2026,1),(2026,2),(2026,3),(2026,4),(2026,5),(2026,6),
+(2026,7),(2026,8),(2026,9),(2026,10),(2026,11),(2026,12);
 
 -- dim_posto_graduacao: Hierarquia completa da FAB
 INSERT INTO dim_posto_graduacao (sig_posto_graduacao, nom_posto_graduacao, categoria, ord_hierarquia) VALUES
@@ -227,7 +229,7 @@ DROP PROCEDURE gera_fat_folha;
 
 
 -- =============================================================================
--- PUBLICAÇÕES DE BOLETIM FINANCEIRO (heatmap 2024-2025)
+-- PUBLICAÇÕES DE BOLETIM FINANCEIRO (heatmap 2024-2026)
 -- Gera dados diários para dias úteis com padrões realistas:
 --   - Mais publicações no fechamento mensal (dias 23-31)
 --   - Menos publicações em janeiro (início de ano)
@@ -240,7 +242,7 @@ DELIMITER //
 CREATE PROCEDURE gera_boletim()
 BEGIN
     DECLARE v_data      DATE    DEFAULT '2024-01-01';
-    DECLARE v_fim       DATE    DEFAULT '2025-12-31';
+    DECLARE v_fim       DATE    DEFAULT '2026-12-31';
     DECLARE v_dow       TINYINT;   -- 1=Dom..7=Sab
     DECLARE v_dom       TINYINT;   -- dia do mês
     DECLARE v_mes       TINYINT;
