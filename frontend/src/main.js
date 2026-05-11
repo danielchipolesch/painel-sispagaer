@@ -17,6 +17,7 @@ import {
   ScatterChart,
   FunnelChart,
   RadarChart,
+  HeatmapChart,
 } from 'echarts/charts'
 import {
   GridComponent,
@@ -29,7 +30,9 @@ import {
   ToolboxComponent,
   DatasetComponent,
   TransformComponent,
-  GraphicComponent
+  GraphicComponent,
+  CalendarComponent,
+  VisualMapComponent,
 } from 'echarts/components'
 
 use([
@@ -41,6 +44,7 @@ use([
   ScatterChart,
   FunnelChart,
   RadarChart,
+  HeatmapChart,
   GridComponent,
   TooltipComponent,
   TitleComponent,
@@ -51,7 +55,9 @@ use([
   ToolboxComponent,
   DatasetComponent,
   TransformComponent,
-  GraphicComponent
+  GraphicComponent,
+  CalendarComponent,
+  VisualMapComponent,
 ])
 
 const app = createApp(App)

@@ -5,15 +5,17 @@
 #   Estágio 1 (build): compila e empacota com Maven
 #   Estágio 2 (runtime): imagem mínima de produção
 #
-# Para construir e executar:
-#   docker build -f src/main/docker/Dockerfile.jvm -t painel-sispagaer-backend:latest .
+# Para construir e executar manualmente:
+#   docker build -t painel-sispagaer-backend:latest .
 #   docker run -i --rm -p 8080:8080 \
-#     -e DB_URL=postgresql://host:5432/dw_sispagaer \
+#     -e DB_URL=mysql://host:3306/dw_sispagaer \
 #     -e DB_USERNAME=sispagaer \
-#     -e DB_PASSWORD=<secret> \
-#     -e API_KEY=<secret> \
-#     -e CORS_ALLOWED_ORIGINS=https://painel.sispagaer.fab.mil.br \
+#     -e DB_PASSWORD=<senha> \
 #     painel-sispagaer-backend:latest
+#
+# PRODUÇÃO: adicione também:
+#     -e API_KEY=<chave-forte> \
+#     -e CORS_ALLOWED_ORIGINS=https://painel.sispagaer.fab.mil.br \
 ####
 
 # --- Estágio 1: Build ---
