@@ -43,6 +43,9 @@ public class ApiKeyFilter implements ContainerRequestFilter {
 
     private static final Logger LOG = Logger.getLogger(ApiKeyFilter.class);
 
+    @ConfigProperty(name = "sispagaer.security.enabled", defaultValue = "true")
+    boolean securityEnabled;
+
     @ConfigProperty(name = "sispagaer.security.api-key")
     String apiKeyEsperada;
 
@@ -55,6 +58,10 @@ public class ApiKeyFilter implements ContainerRequestFilter {
 
     @Override
     public void filter(ContainerRequestContext ctx) {
+        if (!securityEnabled) {
+            return;
+        }
+
         // Preflight CORS — nunca bloquear
         if ("OPTIONS".equalsIgnoreCase(ctx.getMethod())) {
             return;

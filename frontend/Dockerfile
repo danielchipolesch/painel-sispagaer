@@ -11,7 +11,11 @@ CMD ["npm", "run", "dev"]
 
 # Build stage
 FROM base AS build
-RUN npm ci --only=production
+# VITE_API_KEY precisa ser passada em tempo de BUILD, não de runtime.
+# O Vite bake a variável no JS estático durante `npm run build`.
+ARG VITE_API_KEY
+ENV VITE_API_KEY=${VITE_API_KEY}
+RUN npm ci
 COPY . .
 RUN npm run build
 
