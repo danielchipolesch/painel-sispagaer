@@ -18,7 +18,6 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
-import org.eclipse.microprofile.openapi.annotations.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import java.time.LocalDate;
@@ -32,7 +31,6 @@ import java.time.LocalDate;
 @Path("/boletim-financeiro")
 @Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "Boletim Financeiro")
-@SecurityRequirement(name = "ApiKey")
 public class BoletimFinanceiroResource {
 
     @Inject
