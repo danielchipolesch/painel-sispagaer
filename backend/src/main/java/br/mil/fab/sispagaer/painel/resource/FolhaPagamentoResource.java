@@ -25,6 +25,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.eclipse.microprofile.openapi.annotations.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import java.util.List;
@@ -41,6 +42,8 @@ import java.util.List;
 @Path("/folha-pagamento")
 @Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "Folha de Pagamento")
+// PRODUÇÃO: descomente para exibir cadeado no Swagger e exigir X-API-Key
+// @SecurityRequirement(name = "ApiKey")
 public class FolhaPagamentoResource {
 
     @Inject
