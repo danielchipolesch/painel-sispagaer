@@ -32,7 +32,8 @@ import java.time.LocalDate;
 @Path("/boletim-financeiro")
 @Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "Boletim Financeiro")
-@SecurityRequirement(name = "ApiKey")
+// PRODUÇÃO: descomente para exibir cadeado no Swagger e exigir X-API-Key
+// @SecurityRequirement(name = "ApiKey")
 public class BoletimFinanceiroResource {
 
     @Inject

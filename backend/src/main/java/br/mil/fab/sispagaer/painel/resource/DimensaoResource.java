@@ -33,7 +33,8 @@ import java.util.List;
 @Path("/dimensoes")
 @Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "Dimensões")
-@SecurityRequirement(name = "ApiKey")
+// PRODUÇÃO: descomente para exibir cadeado no Swagger e exigir X-API-Key
+// @SecurityRequirement(name = "ApiKey")
 public class DimensaoResource {
 
     @Inject

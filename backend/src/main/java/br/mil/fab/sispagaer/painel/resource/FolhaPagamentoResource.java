@@ -33,8 +33,8 @@ import java.util.List;
 /**
  * Endpoints de consulta ao fato de folha de pagamento ({@code fat_folha_pagamento}).
  *
- * <p>Todos os endpoints são somente leitura (GET) e requerem autenticação
- * via header {@code X-API-Key}.</p>
+ * <p>Todos os endpoints são somente leitura (GET).
+ * Em produção, habilitam autenticação via header {@code X-API-Key}.</p>
  *
  * <p>Respostas são reativas ({@code Uni<T>}) — o Quarkus RESTEasy Reactive
  * serializa automaticamente para JSON sem bloquear threads.</p>
@@ -42,7 +42,8 @@ import java.util.List;
 @Path("/folha-pagamento")
 @Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "Folha de Pagamento")
-@SecurityRequirement(name = "ApiKey")
+// PRODUÇÃO: descomente para exibir cadeado no Swagger e exigir X-API-Key
+// @SecurityRequirement(name = "ApiKey")
 public class FolhaPagamentoResource {
 
     @Inject
